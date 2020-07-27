@@ -18,7 +18,7 @@
 import { spawn, exec } from 'child-process-promise';
 import ora from 'ora';
 import { projectRoot } from '../utils';
-import simpleGit from 'simple-git/promise';
+import simpleGit from 'simple-git';
 
 import { mapWorkspaceToPackages } from '../release/utils/workspace';
 import { inc } from 'semver';

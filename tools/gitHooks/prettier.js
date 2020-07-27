@@ -19,7 +19,7 @@ const { resolve } = require('path');
 const { spawn } = require('child-process-promise');
 const fs = require('mz/fs');
 const glob = require('glob');
-const simpleGit = require('simple-git/promise');
+const simpleGit = require('simple-git');
 const ora = require('ora');
 const chalk = require('chalk');
 

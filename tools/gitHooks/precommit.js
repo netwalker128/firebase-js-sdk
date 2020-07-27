@@ -18,7 +18,7 @@
 const { doPrettier } = require('./prettier');
 const { doLicense } = require('./license');
 const { resolve } = require('path');
-const simpleGit = require('simple-git/promise');
+const simpleGit = require('simple-git');
 const ora = require('ora');
 const chalk = require('chalk');
 

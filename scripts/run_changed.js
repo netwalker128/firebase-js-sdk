@@ -18,7 +18,7 @@
 const { resolve } = require('path');
 const { spawn, exec } = require('child-process-promise');
 const chalk = require('chalk');
-const simpleGit = require('simple-git/promise');
+const simpleGit = require('simple-git');
 
 const root = resolve(__dirname, '..');
 const git = simpleGit(root);

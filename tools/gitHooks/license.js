@@ -16,7 +16,7 @@
  */
 
 const { resolve } = require('path');
-const simpleGit = require('simple-git/promise');
+const simpleGit = require('simple-git');
 const fs = require('mz/fs');
 const ora = require('ora');
 const chalk = require('chalk');
