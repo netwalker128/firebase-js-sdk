@@ -28,10 +28,8 @@ import { testUser, testAuth } from '../../test/helpers/mock_auth';
 import { browserPopupRedirectResolver } from './popup_redirect';
 import { AUTH_ERROR_FACTORY, AuthErrorCode } from '../core/errors';
 import { Persistence } from '../core/persistence';
-import {
-  browserLocalPersistence,
-  browserSessionPersistence
-} from './persistence/browser';
+import { browserLocalPersistence } from './persistence/local_storage';
+import { browserSessionPersistence } from './persistence/session_storage';
 import { inMemoryPersistence } from '../core/persistence/in_memory';
 import { PersistenceUserManager } from '../core/persistence/persistence_user_manager';
 import * as reload from '../core/user/reload';

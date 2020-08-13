@@ -45,6 +45,7 @@ export interface Auth extends AuthCore {
   _isInitialized: boolean;
   updateCurrentUser(user: User | null): Promise<void>;
 
+  _onStorageEvent(): void;
   _createUser(params: UserParameters): User;
   _setPersistence(persistence: externs.Persistence): void;
   _onAuthStateChanged(
