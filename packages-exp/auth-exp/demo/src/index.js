@@ -1641,7 +1641,7 @@ function initApp() {
   log('Initializing app...');
   app = initializeApp(config);
   auth = initializeAuth(app, {
-    persistence: browserSessionPersistence,
+    persistence: indexedDBLocalPersistence,
     popupRedirectResolver: browserPopupRedirectResolver
   });
 
