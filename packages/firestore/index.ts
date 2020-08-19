@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright 2017 Google LLC
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,37 +15,27 @@
  * limitations under the License.
  */
 
-import firebase from '@firebase/app';
-import { FirebaseNamespace } from '@firebase/app-types';
+import firebase from 'firebase/app';
+import '@firebase/firestore';
 
-import { Firestore } from './src/api/database';
-import {
-  MultiTabOfflineComponentProvider,
-  OnlineComponentProvider
-} from './src/core/component_provider';
-import { configureForFirebase } from './src/config';
-import { name, version } from './package.json';
+const firebaseConfig = {
+  apiKey: '***',
+  authDomain: '***.firebaseapp.com',
+  databaseURL: 'https://***.firebaseio.com',
+  projectId: '***',
+  storageBucket: '***.appspot.com',
+  messagingSenderId: '***',
+  appId: '***'
+};
 
-import './register-module';
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 
-/**
- * Registers the main Firestore build with the components framework.
- * Persistence can be enabled via `firebase.firestore().enablePersistence()`.
- */
-export function registerFirestore(instance: FirebaseNamespace): void {
-  configureForFirebase(instance, (app, auth) => {
-    const onlineComponentProvider = new OnlineComponentProvider();
-    const offlineComponentProvider = new MultiTabOfflineComponentProvider(
-      onlineComponentProvider
-    );
-    return new Firestore(
-      app,
-      auth,
-      offlineComponentProvider,
-      onlineComponentProvider
-    );
-  });
-  instance.registerVersion(name, version);
+async function main() {
+  const doc = db.doc('coll/doc');
+  await doc.set({ foo: 'bar' });
+  const snap = await doc.get();
+  console.log(snap.data());
 }
 
-registerFirestore(firebase);
+main();

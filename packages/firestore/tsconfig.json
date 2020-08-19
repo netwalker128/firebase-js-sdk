@@ -1,9 +1,6 @@
 {
-  "extends": "../../config/tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "dist"
-  },
-  "exclude": [
-    "dist/**/*"
-  ]
+    "allowSyntheticDefaultImports": true,
+    "target": "ES5"
+  }
 }
