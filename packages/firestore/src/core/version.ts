@@ -16,4 +16,4 @@
  */
 
 /** The semver (www.semver.org) version of the SDK. */
-export { version as SDK_VERSION } from '../../../firebase/package.json';
+export const SDK_VERSION = '1.16.4';
